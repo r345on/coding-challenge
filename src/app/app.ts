@@ -1,9 +1,8 @@
-import {Component, OnDestroy, OnInit, Signal, signal, WritableSignal} from '@angular/core';
+import {Component, OnDestroy, OnInit, signal, WritableSignal} from '@angular/core';
 import {TextFieldComponent} from './components/text-field/text-field.component';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {combineLatest, map, Observable, startWith, Subject, switchMap, takeUntil, tap} from 'rxjs';
-import {Film, FilmUrl, StarWarsService} from './services/star-wars-service';
-import {AsyncPipe} from '@angular/common';
+import {Subject, takeUntil} from 'rxjs';
+import {Film, StarWarsService} from './services/star-wars-service';
 
 export type InputType = 'starship' | 'people' | 'vehicle';
 
@@ -34,6 +33,7 @@ export class App implements OnInit, OnDestroy {
 
     this.fieldNames.forEach(name => this.form.get(name)?.valueChanges.pipe(takeUntil(this.unsub))
       .subscribe(() => this.onOneInputChange(name)));
+
     this.form.valueChanges.pipe(takeUntil(this.unsub))
       .subscribe((groupObj: { [key: string]: string }) => {
         if (!Object.values(groupObj).join('').length) {

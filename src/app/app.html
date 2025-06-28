@@ -10,10 +10,10 @@
     </button>
   </form>
   <br>
-  <div class="d-flex flex-wrap justify-content-between films-container pt-5 gap-3">
+  <div class="d-flex flex-wrap justify-content-between films-container py-5 gap-3">
     @if (films().length) {
       @for (film of films(); track film.episode_id) {
-        <div class="film p-3" [class.marked]="film.marked">
+        <div class="film p-4" [class.marked]="film.marked">
           <h2>{{ film.title }}</h2>
           <p class="description">{{ film.opening_crawl }}</p>
           <p><b>Director: </b>{{ film.director }}</p>

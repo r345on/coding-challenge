@@ -46,6 +46,6 @@ export class StarWarsService {
     return lastValueFrom(this.http.get<{
       results: any
     }>(`${this.API_URL}/${type}/?search=${query.query}`).pipe(map(res => res.results),
-      map(results => results[0].films)));
+      map(results => results.length ? results[0].films : [])));
   }
 }

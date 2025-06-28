@@ -3,6 +3,7 @@
     .film {
       width: 30%;
       border: 2px solid;
+      border-radius: 2em;
 
       &.marked {
         border-color: var(--bs-warning);
