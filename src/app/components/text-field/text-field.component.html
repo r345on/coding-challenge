@@ -1,0 +1,14 @@
+<div class="mb-3">
+  <label class="form-label">{{ controlName | titlecase }}
+    @if (hasRequired()) {
+      <span class="text-danger">*</span>
+    }
+  </label>
+  <input type="text" class="form-control" [formControl]="control" [value]="value" [placeholder]="controlName"
+         [class.required]="control.hasError('required')">
+  <p class="errors-block">
+    @if (control.hasError('minlength')) {
+      <span class="text-danger">Should have at least 3 characters</span>
+    }
+  </p>
+</div>

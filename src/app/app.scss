@@ -1,0 +1,21 @@
+:host {
+  .films-container {
+    .film {
+      width: 30%;
+      border: 2px solid;
+
+      &.marked {
+        border-color: var(--bs-warning);
+      }
+
+      .description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        word-break: break-word;
+        white-space: normal;
+        overflow: hidden;
+      }
+    }
+  }
+}

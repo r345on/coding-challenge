@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  min-width: 300px;
+
+  input.form-control {
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    &.ng-touched.ng-invalid {
+      border-color: var(--bs-danger);
+    }
+
+    &.ng-touched.ng-valid {
+      border-color: var(--bs-success);
+    }
+  }
+
+  p.errors-block {
+    min-height: 1.5em;
+  }
+}
